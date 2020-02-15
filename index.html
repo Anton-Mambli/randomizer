@@ -14,23 +14,21 @@
 <div class="todo-section">
  
 <div class="todo-section_input">
-<input type="text" name="main-input" id="main-input" placeholder="Введите задание">
-<a href="#" class="todo-section_clear-button"><i class="fas fa-check-double"></i> Очистить список</a>
-<p class="todo-section_notification">Список очищен</p>
+<input type="text" name="main-input" id="main-input" placeholder="Введите задание" data-input>
+<a href="#" class="todo-section_clear-button" data-clear-all><i class="fas fa-check-double"></i> Очистить список</a>
+<p class="todo-section_notification" data-clear-notification></p>
 </div>
 <div class="todo-section_list">
-<ul>
-  <li><i class="far fa-check-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, numquam!</li>
-  <li><i class="far fa-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, numquam!</li>
-  <li><i class="far fa-circle"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, numquam!</li>
+<ul data-todo-list>
+
 </ul>
 </div>
 <div class="todo-section_filters">
-  <p class="todo-section_notification">2 задания осталось</p>
+  <p class="todo-section_notification" data-tasks-count></p>
 <div class="todo-section_bottom-filters">
-  <a href="#" class="todo-section_filters-button">Все</a>
-  <a href="#" class="todo-section_filters-button">Незавершенные</a>
-  <a href="#" class="todo-section_filters-button">Завершенные</a>
+  <a href="#" class="todo-section_filters-button" data-filter-all>Все</a>
+  <a href="#" class="todo-section_filters-button" data-filter-uncompleted>Незавершенные</a>
+  <a href="#" class="todo-section_filters-button" data-filter-complete>Завершенные</a>
 </div>
 </div>
             
