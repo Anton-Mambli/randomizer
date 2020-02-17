@@ -74,8 +74,11 @@ body {
     width: 100%;
 }
 .todo-section_list ul li {
-margin: 10px 0;
+padding: 10px 0;
 font-size: 20px;
+}
+.todo-section_list ul li i {
+    margin-right: 10px;
 }
 .todo-section_filters { 
     display: flex;
@@ -97,4 +100,8 @@ font-size: 20px;
 }
 .todo-section_filters-button:hover {
     text-decoration: underline;
+}
+
+.hide {
+    display: none;
 }
