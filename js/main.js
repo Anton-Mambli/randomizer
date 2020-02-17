@@ -19,7 +19,10 @@ class TodoList {
                 this.checkComplete(event)
             })
             todoItem.setAttribute('data-mark-complete', 'false')
+            todoItem.style.animation = '2s fadeIn';
+            todoItem.style.opacity = '1';
             todoList.prepend(todoItem);
+            
             input.value = '';
             this.itemText = null;
         }
@@ -60,12 +63,22 @@ class TodoList {
     filterAll() {
         Array.from(document.querySelectorAll('[data-todo-list] li')).forEach(item => {
             item.classList.remove('hide');
+            item.style.animation = '2s fadeIn';
+            item.style.opacity = '1';
         })
     }
     filter(arr, filterArg) {
         sortedArr = Array.from(arr).filter(item => item.getAttribute('data-mark-complete') == filterArg);
-        arr.forEach(item => item.classList.add('hide'))
-        sortedArr.forEach(item => item.classList.remove('hide'))
+        arr.forEach(item => {
+            item.style.animation = '2s fadeOut';
+            item.style.opacity = '0';
+            item.classList.add('hide')
+        })
+        sortedArr.forEach(item => {
+            item.classList.remove('hide');
+            item.style.animation = '2s fadeIn';
+            item.style.opacity = '1';
+        })
     }
 }
 
