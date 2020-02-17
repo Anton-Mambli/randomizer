@@ -66,6 +66,8 @@ body {
 }
 .todo-section_notification {
     color: #2c3e50;
+    opacity: 0;
+    transition: all 1s;
 }
 .todo-section_list {
     border-top: 1px solid  #2c3e50;
@@ -104,4 +106,39 @@ font-size: 20px;
 
 .hide {
     display: none;
+}
+
+@keyframes check {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+        text-decoration: line-through;
+    }
+}
+@keyframes uncheck {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+        text-decoration: none;
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

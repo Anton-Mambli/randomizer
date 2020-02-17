@@ -30,10 +30,14 @@ class TodoList {
             if (target.classList.contains('fa-circle')) {
                 target.classList.remove('fa-circle');
                 target.classList.add('fa-check-circle');
+                target.parentElement.style.animation = '1.5s check'
+                target.parentElement.style.opacity = '0.5';
                 target.parentElement.style.textDecoration = 'line-through';
             } else {
                 target.classList.remove('fa-check-circle');
                 target.classList.add('fa-circle');
+                target.parentElement.style.animation = '1.5s uncheck'
+                target.parentElement.style.opacity = '1';
                 target.parentElement.style.textDecoration = 'none';
             }
             target.parentElement.setAttribute('data-mark-complete', 'true')
@@ -43,9 +47,12 @@ class TodoList {
         document.querySelectorAll('ul li').forEach(item => item.remove());
         tasksCount.innerHTML = '';
         clearNotification.innerText = 'Список очищен';
+        clearNotification.style.animation = '1s fadeIn';
+        clearNotification.style.opacity = '1';
         setTimeout(() => {
-            clearNotification.innerText = ''
-        }, 3000)
+            clearNotification.style.animation = '1s fadeOut';
+            clearNotification.style.opacity = '0';
+        }, 3000);
     }
     taskCount() {
         tasksCount.innerHTML = `Заданий осталось: ${Array.from(document.querySelectorAll('[data-todo-list] li')).length}`;
