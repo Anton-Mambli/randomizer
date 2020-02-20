@@ -6,6 +6,8 @@ const tasksCount = document.querySelector('[data-tasks-count]');
 const filterAll = document.querySelector('[data-filter-all]');
 const filterUncompleted = document.querySelector('[data-filter-uncompleted]');
 const filterComplete = document.querySelector('[data-filter-complete]');
+let todoElem = document.querySelector('[data-todo-list]').children;
+
 let sortedArr;
 class TodoList {
     constructor() {
@@ -22,7 +24,7 @@ class TodoList {
             todoItem.style.animation = '2s fadeIn';
             todoItem.style.opacity = '1';
             todoList.prepend(todoItem);
-            
+
             input.value = '';
             this.itemText = null;
         }
@@ -58,17 +60,19 @@ class TodoList {
         }, 3000);
     }
     taskCount() {
-        tasksCount.innerHTML = `Заданий осталось: ${Array.from(document.querySelectorAll('[data-todo-list] li')).length}`;
+        tasksCount.innerHTML = `Заданий осталось: ${todoElem.length}`;
+
     }
     filterAll() {
-        Array.from(document.querySelectorAll('[data-todo-list] li')).forEach(item => {
+        Array.from(todoElem).forEach(item => {
             item.classList.remove('hide');
             item.style.animation = '2s fadeIn';
             item.style.opacity = '1';
         })
     }
     filter(arr, filterArg) {
-        sortedArr = Array.from(arr).filter(item => item.getAttribute('data-mark-complete') == filterArg);
+        arr = Array.from(arr);
+        sortedArr = arr.filter(item => item.getAttribute('data-mark-complete') == filterArg);
         arr.forEach(item => {
             item.style.animation = '2s fadeOut';
             item.style.opacity = '0';
@@ -103,9 +107,9 @@ filterAll.addEventListener('click', () => {
 })
 
 filterComplete.addEventListener('click', () => {
-    todo.filter(document.querySelectorAll('[data-todo-list] li'), 'true');
+    todo.filter(todoElem, 'true');
 })
 
 filterUncompleted.addEventListener('click', () => {
-    todo.filter(document.querySelectorAll('[data-todo-list] li'), 'false');
+    todo.filter(todoElem, 'false');
 })
